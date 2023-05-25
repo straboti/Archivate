@@ -1,0 +1,29 @@
+{
+  "sourceFolder": "/home/user/Desktop/dev/archivate/source/",
+  "targetFolder": "/home/user/Desktop/dev/archivate/archived/",
+  "keepInSource": false,
+  "deleteOfflineFiles": "1S",
+  "missingFileBehaviour": "placeholder",
+  "minimumFileSize": "10B",
+  "maximumFileSize": "100M",
+  "fileNameMatches": "",
+  "delayBetweenChecks": "3S",
+  "prefix": "managed",
+  "suffix": "",
+  "order": "n-d-t",
+  "compressFiles": true,
+  "timeBlocks": [
+    {
+      "endTime": "5S",
+      "fileCountDivision": 1
+    },
+    {
+      "endTime": "10S",
+      "fileCountDivision": 2
+    },
+    {
+      "endTime": "15S",
+      "fileCountDivision": 3
+    }
+  ]
+}
