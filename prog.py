@@ -6,6 +6,7 @@ import gzip
 import json
 from termcolor import colored
 
+#Terminal coloring and logging
 def info(text):
     print("[INFO]-{}".format(text))
 def warn(text):
@@ -46,6 +47,7 @@ settings_default = {
     ]
 }
 
+#Try to open the settings file
 if os.path.exists("./config.json"):
     settingsFile = open("./config.json","r")
     settings = json.loads(settingsFile.read())
@@ -142,6 +144,7 @@ TIMEBLOCKSRAW = list(settings["timeBlocks"])
 
 info("Loaded all settings.")
 
+#Parse timeblocks
 timeBlocksUnsorted = dict()
 info("Parsing timeblocks...")
 for index,timeblock in enumerate(TIMEBLOCKSRAW):
@@ -169,6 +172,7 @@ if len(files) > 0:
 info("Picked up ID.")
 filesInSrc = os.listdir(SRCDIR)
 
+#Restrict the files to be archived
 workFileNames = []
 for file in filesInSrc:
     if re.match(FILENAMEMATCHES,str(file)) or FILENAMEMATCHES == "":
@@ -194,6 +198,8 @@ for file in workFileNames:
     if not KEEPINSRC:
         os.remove(SRCDIR+file)
 
+
+#Loop
 info("STARTING SHARDING LOOP.")
 while True:
     filesInDir = os.listdir(TGTDIR)
